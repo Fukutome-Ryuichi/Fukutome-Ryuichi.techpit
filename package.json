@@ -2,8 +2,8 @@
     "name": "markdown-editor",
     "version": "1.0.0",
     "scripts": {
-        "start": "webpack server --open",
-        "build": "webpack --mode=production"
+        "start": "webpack-dev-server --mode development",
+        "build": "webpack --mode production"
     },
     "dependencies": {
         "@types/react": "^17.0.38",
