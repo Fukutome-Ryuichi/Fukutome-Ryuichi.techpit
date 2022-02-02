@@ -9,6 +9,14 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            // { test: /.ts$/, loader: 'ts-loader' },
+            {
+                test: /worker.js$/i,
+                loader: "worker-loader",
+                options: {
+                    inline: "no-fallback"
+                },
+            },
         ],
     },
     resolve: {
@@ -17,11 +25,14 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
-        publicPath: '/dist/',
+        // publicPath: '/dist/',
     },
     devServer: {
-        static: { directory: path.join(__dirname) },
+        static: { directory: path.join(__dirname, "/dist") },
         hot: true,
         open: true,
+
+        historyApiFallback: true
     }
 }
+
